@@ -61,7 +61,7 @@ const Index = () => {
   return <div className="min-h-screen">
       <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-4">
+          <div className="flex items-center justify-between py-[14px]">
             <div className="text-white font-playfair text-xl">Sen. A.S. Danladi</div>
             
             <button className="md:hidden text-white p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
