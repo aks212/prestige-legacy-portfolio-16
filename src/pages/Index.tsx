@@ -158,7 +158,7 @@ const Index = () => {
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((_, index) => <div key={index} className="fade-up-section">
-                <img src="/placeholder.svg" alt={`Gallery image ${index + 1}`} className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" />
+                <img alt={`Gallery image ${index + 1}`} className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" src="/lovable-uploads/77131393-345c-4704-89ec-23c2fa6bddc9.jpg" />
               </div>)}
           </div>
         </div>
