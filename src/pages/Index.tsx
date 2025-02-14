@@ -11,11 +11,12 @@ const Index = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-fade-up");
+          entry.target.classList.add("visible");
         }
       });
     });
 
-    document.querySelectorAll(".animate-on-scroll").forEach((element) => {
+    document.querySelectorAll(".animate-on-scroll, .fade-up-section").forEach((element) => {
       observer.observe(element);
     });
 
@@ -69,7 +70,7 @@ const Index = () => {
             <img 
               src="/placeholder.svg" 
               alt="Senator Abubakar Sani Danladi" 
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gold mx-auto object-cover shadow-xl"
+              className="profile-image w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gold mx-auto object-cover shadow-xl"
             />
           </div>
           <span className="text-gold font-inter uppercase tracking-wider mb-4 block">Welcome to the Official Portfolio of</span>
@@ -89,7 +90,7 @@ const Index = () => {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {achievements.map((achievement, index) => (
-              <div key={index} className="animate-on-scroll opacity-0 text-center p-8 border border-gold/20 rounded-lg hover:border-gold transition-all duration-300">
+              <div key={index} className="achievement-card animate-on-scroll opacity-0 text-center p-8 border border-gold/20 rounded-lg hover:border-gold transition-all duration-300">
                 <div className="font-playfair text-4xl text-royal mb-2">{achievement.number}</div>
                 <div className="text-royal/80">{achievement.label}</div>
               </div>
@@ -102,14 +103,14 @@ const Index = () => {
       <section className="py-20 bg-gray-50">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-on-scroll opacity-0">
+            <div className="fade-up-section">
               <img 
                 src="/placeholder.svg" 
                 alt="Senator at work" 
-                className="rounded-lg shadow-xl w-full h-[500px] object-cover"
+                className="timeline-image rounded-lg shadow-xl w-full h-[500px] object-cover"
               />
             </div>
-            <div className="animate-on-scroll opacity-0">
+            <div className="fade-up-section">
               <h2 className="section-title">The Man Behind the Mission</h2>
               <p className="text-lg text-royal/80 mb-6">
                 A dedicated leader committed to transformative change and sustainable development
@@ -131,14 +132,14 @@ const Index = () => {
           <h2 className="section-title text-center mb-16">Leadership Journey</h2>
           <div className="max-w-3xl mx-auto">
             {timeline.map((item, index) => (
-              <div key={index} className="timeline-item animate-on-scroll opacity-0">
+              <div key={index} className="timeline-item animate-on-scroll">
                 <div className="timeline-dot"></div>
                 <div className="ml-4">
                   <div className="mb-4">
                     <img 
                       src={item.image} 
                       alt={item.title} 
-                      className="w-full h-48 object-cover rounded-lg shadow-md"
+                      className="timeline-image w-full h-48 object-cover rounded-lg shadow-md"
                     />
                   </div>
                   <span className="text-gold font-playfair text-xl">{item.year}</span>
@@ -157,11 +158,11 @@ const Index = () => {
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((_, index) => (
-              <div key={index} className="animate-on-scroll opacity-0">
+              <div key={index} className="fade-up-section">
                 <img 
                   src="/placeholder.svg" 
                   alt={`Gallery image ${index + 1}`} 
-                  className="w-full h-64 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                  className="gallery-image w-full h-64 object-cover rounded-lg shadow-md"
                 />
               </div>
             ))}
@@ -174,16 +175,16 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-white text-center">Get in Touch</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center gap-4 animate-on-scroll opacity-0">
-              <Phone className="text-gold w-6 h-6" />
+            <div className="flex items-center justify-center gap-4 fade-up-section">
+              <Phone className="contact-icon text-gold w-6 h-6" />
               <span>+234 XXX XXX XXXX</span>
             </div>
-            <div className="flex items-center justify-center gap-4 animate-on-scroll opacity-0">
-              <Mail className="text-gold w-6 h-6" />
+            <div className="flex items-center justify-center gap-4 fade-up-section">
+              <Mail className="contact-icon text-gold w-6 h-6" />
               <span>contact@example.com</span>
             </div>
-            <div className="flex items-center justify-center gap-4 animate-on-scroll opacity-0">
-              <MapPin className="text-gold w-6 h-6" />
+            <div className="flex items-center justify-center gap-4 fade-up-section">
+              <MapPin className="contact-icon text-gold w-6 h-6" />
               <span>Abuja, Nigeria</span>
             </div>
           </div>

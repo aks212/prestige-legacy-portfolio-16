@@ -44,8 +44,90 @@
 
 .timeline-item {
   @apply relative pl-8 pb-12 border-l-2 border-gold last:border-l-0 last:pb-0;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.6s ease-out;
+}
+
+.timeline-item.animate-fade-up {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .timeline-dot {
   @apply absolute left-[-9px] top-0 w-4 h-4 rounded-full bg-gold border-4 border-white;
+  transition: transform 0.3s ease;
+}
+
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.2);
+}
+
+/* Image hover effects */
+.gallery-image {
+  transform: scale(1);
+  transition: all 0.5s ease-in-out;
+}
+
+.gallery-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Achievement counter animation */
+.achievement-card {
+  transition: all 0.3s ease-in-out;
+}
+
+.achievement-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Profile image animation */
+.profile-image {
+  animation: profileEntrance 1.2s ease-out;
+}
+
+@keyframes profileEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Contact icons animation */
+.contact-icon {
+  transition: all 0.3s ease;
+}
+
+.contact-icon:hover {
+  transform: scale(1.2);
+  color: theme('colors.gold.DEFAULT');
+}
+
+/* Timeline image animation */
+.timeline-image {
+  transition: all 0.5s ease;
+}
+
+.timeline-image:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* Fade up animation for sections */
+.fade-up-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.fade-up-section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
