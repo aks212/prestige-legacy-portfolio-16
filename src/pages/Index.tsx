@@ -1,80 +1,70 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, Mail, MapPin, Phone, Menu, X } from "lucide-react";
-
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   useEffect(() => {
     setIsVisible(true);
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-fade-up");
           entry.target.classList.add("visible");
         }
       });
     });
-
-    document.querySelectorAll(".animate-on-scroll, .fade-up-section").forEach((element) => {
+    document.querySelectorAll(".animate-on-scroll, .fade-up-section").forEach(element => {
       observer.observe(element);
     });
-
     return () => observer.disconnect();
   }, []);
-
-  const achievements = [
-    { number: "25+", label: "Years of Public Service" },
-    { number: "100+", label: "Policy Initiatives" },
-    { number: "1M+", label: "Lives Impacted" },
-  ];
-
-  const timeline = [
-    {
-      year: "2023",
-      title: "APC Senatorial Candidate",
-      description: "Led a transformative campaign focused on progressive policies.",
-      image: "/placeholder.svg"
-    },
-    {
-      year: "2015-2017",
-      title: "Senator",
-      description: "Served as Chairman, Senate Committee on NEPAD.",
-      image: "/placeholder.svg"
-    },
-    {
-      year: "2014-2015",
-      title: "Acting Governor",
-      description: "Implemented critical reforms and development projects.",
-      image: "/placeholder.svg"
-    },
-    {
-      year: "2007-2012",
-      title: "Deputy Governor",
-      description: "Championed educational and infrastructure development.",
-      image: "/placeholder.svg"
-    },
-  ];
-
+  const achievements = [{
+    number: "25+",
+    label: "Years of Public Service"
+  }, {
+    number: "100+",
+    label: "Policy Initiatives"
+  }, {
+    number: "1M+",
+    label: "Lives Impacted"
+  }];
+  const timeline = [{
+    year: "2023",
+    title: "APC Senatorial Candidate",
+    description: "Led a transformative campaign focused on progressive policies.",
+    image: "/placeholder.svg"
+  }, {
+    year: "2015-2017",
+    title: "Senator",
+    description: "Served as Chairman, Senate Committee on NEPAD.",
+    image: "/placeholder.svg"
+  }, {
+    year: "2014-2015",
+    title: "Acting Governor",
+    description: "Implemented critical reforms and development projects.",
+    image: "/placeholder.svg"
+  }, {
+    year: "2007-2012",
+    title: "Deputy Governor",
+    description: "Championed educational and infrastructure development.",
+    image: "/placeholder.svg"
+  }];
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
     setIsMenuOpen(false);
   };
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-4">
             <div className="text-white font-playfair text-xl">Sen. A.S. Danladi</div>
             
-            <button 
-              className="md:hidden text-white p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
+            <button className="md:hidden text-white p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X /> : <Menu />}
             </button>
 
@@ -91,18 +81,13 @@ const Index = () => {
       </header>
 
       <section className="parallax min-h-screen flex items-center justify-center text-center relative">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url('/placeholder.svg')` }}
-        ></div>
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
+        backgroundImage: `url('/placeholder.svg')`
+      }}></div>
         <div className="absolute inset-0 bg-royal/90"></div>
         <div className={`relative z-10 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="mb-8">
-            <img 
-              src="/placeholder.svg" 
-              alt="Senator Abubakar Sani Danladi" 
-              className="profile-image w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gold mx-auto object-cover shadow-xl"
-            />
+            <img alt="Senator Abubakar Sani Danladi" className="profile-image w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gold mx-auto object-cover shadow-xl" src="/lovable-uploads/efaed3e1-9a95-4eb0-80c7-480c9a08841e.jpg" />
           </div>
           <span className="text-gold font-inter uppercase tracking-wider mb-4 block">Welcome to the Official Portfolio of</span>
           <h1 className="font-playfair text-5xl md:text-7xl text-white mb-6">Sen. Abubakar Sani Danladi</h1>
@@ -119,12 +104,10 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {achievements.map((achievement, index) => (
-              <div key={index} className="achievement-card animate-on-scroll opacity-0 text-center p-8 border border-gold/20 rounded-lg hover:border-gold transition-all duration-300">
+            {achievements.map((achievement, index) => <div key={index} className="achievement-card animate-on-scroll opacity-0 text-center p-8 border border-gold/20 rounded-lg hover:border-gold transition-all duration-300">
                 <div className="font-playfair text-4xl text-royal mb-2">{achievement.number}</div>
                 <div className="text-royal/80">{achievement.label}</div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -133,11 +116,7 @@ const Index = () => {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="fade-up-section">
-              <img 
-                src="/placeholder.svg" 
-                alt="Senator at work" 
-                className="timeline-image rounded-lg shadow-xl w-full h-[500px] object-cover"
-              />
+              <img alt="Senator at work" className="timeline-image rounded-lg shadow-xl w-full h-[500px] object-cover" src="/lovable-uploads/e3aae050-31d0-41f6-9827-0ec97b9118bc.jpg" />
             </div>
             <div className="fade-up-section">
               <h2 className="section-title">The Man Behind the Mission</h2>
@@ -159,23 +138,17 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-center mb-16">Leadership Journey</h2>
           <div className="max-w-3xl mx-auto">
-            {timeline.map((item, index) => (
-              <div key={index} className="timeline-item animate-on-scroll">
+            {timeline.map((item, index) => <div key={index} className="timeline-item animate-on-scroll">
                 <div className="timeline-dot"></div>
                 <div className="ml-4">
                   <div className="mb-4">
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
-                      className="timeline-image w-full h-48 object-cover rounded-lg shadow-md"
-                    />
+                    <img src={item.image} alt={item.title} className="timeline-image w-full h-48 object-cover rounded-lg shadow-md" />
                   </div>
                   <span className="text-gold font-playfair text-xl">{item.year}</span>
                   <h3 className="text-2xl font-playfair text-royal mt-1">{item.title}</h3>
                   <p className="text-royal/70 mt-2">{item.description}</p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -184,15 +157,9 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((_, index) => (
-              <div key={index} className="fade-up-section">
-                <img 
-                  src="/placeholder.svg" 
-                  alt={`Gallery image ${index + 1}`} 
-                  className="gallery-image w-full h-64 object-cover rounded-lg shadow-md"
-                />
-              </div>
-            ))}
+            {[1, 2, 3, 4, 5, 6].map((_, index) => <div key={index} className="fade-up-section">
+                <img src="/placeholder.svg" alt={`Gallery image ${index + 1}`} className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" />
+              </div>)}
           </div>
         </div>
       </section>
@@ -219,40 +186,22 @@ const Index = () => {
 
             <form className="space-y-6 fade-up-section">
               <div>
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold"
-                />
+                <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
               </div>
               <div>
-                <input
-                  type="email"
-                  placeholder="Your Email"
-                  className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold"
-                />
+                <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
               </div>
               <div>
-                <input
-                  type="text"
-                  placeholder="Subject"
-                  className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold"
-                />
+                <input type="text" placeholder="Subject" className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
               </div>
               <div>
-                <textarea
-                  placeholder="Your Message"
-                  rows={4}
-                  className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold resize-none"
-                ></textarea>
+                <textarea placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold resize-none"></textarea>
               </div>
               <button type="submit" className="gold-button w-full">Send Message</button>
             </form>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
