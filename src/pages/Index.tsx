@@ -90,9 +90,20 @@ const Index = () => {
         </div>
       </header>
 
-      <section className="parallax min-h-screen flex items-center justify-center text-center relative bg-royal">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg')] bg-cover bg-center opacity-10"></div>
+      <section className="parallax min-h-screen flex items-center justify-center text-center relative">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('/placeholder.svg')` }}
+        ></div>
+        <div className="absolute inset-0 bg-royal/90"></div>
         <div className={`relative z-10 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <div className="mb-8">
+            <img 
+              src="/placeholder.svg" 
+              alt="Senator Abubakar Sani Danladi" 
+              className="profile-image w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-gold mx-auto object-cover shadow-xl"
+            />
+          </div>
           <span className="text-gold font-inter uppercase tracking-wider mb-4 block">Welcome to the Official Portfolio of</span>
           <h1 className="font-playfair text-5xl md:text-7xl text-white mb-6">Sen. Abubakar Sani Danladi</h1>
           <p className="text-white/90 text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
