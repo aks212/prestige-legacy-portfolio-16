@@ -61,7 +61,7 @@ const Index = () => {
   return <div className="min-h-screen">
       <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-[14px]">
+          <div className="flex items-center justify-between py-[14px] rounded-none">
             <div className="text-white font-playfair text-xl">Sen. A.S. Danladi</div>
             
             <button className="md:hidden text-white p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -158,7 +158,7 @@ const Index = () => {
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[1, 2, 3, 4, 5, 6].map((_, index) => <div key={index} className="fade-up-section">
-                <img alt={`Gallery image ${index + 1}`} className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" src="/lovable-uploads/0394502f-3a68-44e4-b711-ea62236bb155.jpg" />
+                <img alt={`Gallery image ${index + 1}`} className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" src="/lovable-uploads/11de62b8-f656-4e12-90bb-15daec7f35cb.jpg" />
               </div>)}
           </div>
         </div>
