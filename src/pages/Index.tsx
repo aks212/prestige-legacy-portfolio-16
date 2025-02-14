@@ -1,9 +1,9 @@
-
 import { useEffect, useState } from "react";
-import { ChevronDown, Mail, MapPin, Phone } from "lucide-react";
+import { ChevronDown, Mail, MapPin, Phone, Menu, X } from "lucide-react";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
@@ -56,9 +56,40 @@ const Index = () => {
     },
   ];
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   return (
     <div className="min-h-screen">
-      {/* Hero Section with Background Image */}
+      <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-4">
+            <div className="text-white font-playfair text-xl">Sen. A.S. Danladi</div>
+            
+            <button 
+              className="md:hidden text-white p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X /> : <Menu />}
+            </button>
+
+            <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block absolute md:relative top-full left-0 w-full md:w-auto bg-royal md:bg-transparent`}>
+              <ul className="flex flex-col md:flex-row items-center gap-6 p-4 md:p-0">
+                <li><button onClick={() => scrollToSection('about')} className="nav-link text-white">About</button></li>
+                <li><button onClick={() => scrollToSection('journey')} className="nav-link text-white">Journey</button></li>
+                <li><button onClick={() => scrollToSection('gallery')} className="nav-link text-white">Gallery</button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="nav-link text-white">Contact</button></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
       <section className="parallax min-h-screen flex items-center justify-center text-center relative">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -79,13 +110,12 @@ const Index = () => {
             "Leadership Rooted in Service, Commitment, and Progress."
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="gold-button">Explore My Journey</button>
+            <button onClick={() => scrollToSection('about')} className="gold-button">Explore My Journey</button>
           </div>
           <ChevronDown className="text-gold w-12 h-12 mx-auto mt-12 animate-bounce" />
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="py-20 bg-white">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -99,8 +129,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section with Image */}
-      <section className="py-20 bg-gray-50">
+      <section id="about" className="py-20 bg-gray-50">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="fade-up-section">
@@ -126,8 +155,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Timeline Section with Images */}
-      <section className="py-20 bg-white">
+      <section id="journey" className="py-20 bg-white">
         <div className="container">
           <h2 className="section-title text-center mb-16">Leadership Journey</h2>
           <div className="max-w-3xl mx-auto">
@@ -152,8 +180,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Gallery Section */}
-      <section className="py-20 bg-gray-50">
+      <section id="gallery" className="py-20 bg-gray-50">
         <div className="container">
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -170,23 +197,57 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-20 bg-royal text-white">
+      <section id="contact" className="py-20 bg-royal text-white">
         <div className="container">
           <h2 className="section-title text-white text-center">Get in Touch</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex items-center justify-center gap-4 fade-up-section">
-              <Phone className="contact-icon text-gold w-6 h-6" />
-              <span>+234 XXX XXX XXXX</span>
+          
+          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+            <div className="space-y-8">
+              <div className="flex items-center gap-4 fade-up-section">
+                <Phone className="contact-icon text-gold w-6 h-6" />
+                <span>+234 XXX XXX XXXX</span>
+              </div>
+              <div className="flex items-center gap-4 fade-up-section">
+                <Mail className="contact-icon text-gold w-6 h-6" />
+                <span>contact@example.com</span>
+              </div>
+              <div className="flex items-center gap-4 fade-up-section">
+                <MapPin className="contact-icon text-gold w-6 h-6" />
+                <span>Abuja, Nigeria</span>
+              </div>
             </div>
-            <div className="flex items-center justify-center gap-4 fade-up-section">
-              <Mail className="contact-icon text-gold w-6 h-6" />
-              <span>contact@example.com</span>
-            </div>
-            <div className="flex items-center justify-center gap-4 fade-up-section">
-              <MapPin className="contact-icon text-gold w-6 h-6" />
-              <span>Abuja, Nigeria</span>
-            </div>
+
+            <form className="space-y-6 fade-up-section">
+              <div>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Subject"
+                  className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold"
+                />
+              </div>
+              <div>
+                <textarea
+                  placeholder="Your Message"
+                  rows={4}
+                  className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold resize-none"
+                ></textarea>
+              </div>
+              <button type="submit" className="gold-button w-full">Send Message</button>
+            </form>
           </div>
         </div>
       </section>
