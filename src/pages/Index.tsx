@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, Mail, MapPin, Phone, Menu, X, Facebook, Twitter, Instagram, Youtube, XCircle } from "lucide-react";
-
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
   useEffect(() => {
     setIsVisible(true);
     const observer = new IntersectionObserver(entries => {
@@ -21,7 +19,6 @@ const Index = () => {
     });
     return () => observer.disconnect();
   }, []);
-
   const achievements = [{
     number: "25+",
     label: "Years of Public Service"
@@ -32,7 +29,6 @@ const Index = () => {
     number: "1M+",
     label: "Lives Impacted"
   }];
-
   const timeline = [{
     year: "2023",
     title: "APC Senatorial Candidate",
@@ -54,7 +50,6 @@ const Index = () => {
     description: "Championed educational and infrastructure development.",
     image: "/lovable-uploads/19002cb2-765a-459b-8eb1-e626cb4b078e.png"
   }];
-
   const traditionalTitles = [{
     title: "Sardaunan Muri",
     year: "2015",
@@ -81,7 +76,6 @@ const Index = () => {
     conferredBy: "Muri Emirate",
     description: "Recognition of leadership excellence and community service"
   }];
-
   const awards = [{
     title: "Distinguished Leadership Award",
     year: "2022",
@@ -108,16 +102,7 @@ const Index = () => {
     organization: "Youth Development Council",
     description: "For initiatives supporting youth entrepreneurship"
   }];
-
-  const galleryImages = [
-    "/lovable-uploads/11de62b8-f656-4e12-90bb-15daec7f35cb.jpg",
-    "/lovable-uploads/77131393-345c-4704-89ec-23c2fa6bddc9.jpg",
-    "/lovable-uploads/82e9dde3-af19-433c-9189-37632b0894eb.jpg",
-    "/lovable-uploads/a431f8e9-4972-4955-8b6e-f9601b8c0806.jpg",
-    "/lovable-uploads/e3aae050-31d0-41f6-9827-0ec97b9118bc.jpg",
-    "/lovable-uploads/efaed3e1-9a95-4eb0-80c7-480c9a08841e.jpg"
-  ];
-
+  const galleryImages = ["/lovable-uploads/11de62b8-f656-4e12-90bb-15daec7f35cb.jpg", "/lovable-uploads/77131393-345c-4704-89ec-23c2fa6bddc9.jpg", "/lovable-uploads/82e9dde3-af19-433c-9189-37632b0894eb.jpg", "/lovable-uploads/a431f8e9-4972-4955-8b6e-f9601b8c0806.jpg", "/lovable-uploads/e3aae050-31d0-41f6-9827-0ec97b9118bc.jpg", "/lovable-uploads/efaed3e1-9a95-4eb0-80c7-480c9a08841e.jpg"];
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -127,7 +112,6 @@ const Index = () => {
     }
     setIsMenuOpen(false);
   };
-
   return <div className="min-h-screen flex flex-col">
       <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
@@ -163,9 +147,7 @@ const Index = () => {
           </div>
           <span className="text-gold font-inter uppercase tracking-wider mb-4 block">Welcome to the Official Portfolio of</span>
           <h1 className="font-playfair text-5xl md:text-7xl text-white mb-6">Sen. Abubakar Sani Danladi</h1>
-          <p className="text-white/90 text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            "Leadership Rooted in Service, Commitment, and Progress."
-          </p>
+          <p className="text-white/90 text-xl md:text-2xl mb-8 max-w-2xl mx-auto">"Grassroot politics & Community Development."</p>
           <div className="flex flex-wrap justify-center gap-4">
             <button onClick={() => scrollToSection('about')} className="gold-button">Explore My Journey</button>
           </div>
@@ -210,23 +192,17 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-center mb-16">Leadership Journey</h2>
           <div className="max-w-3xl mx-auto">
-            {timeline.map((item, index) => (
-              <div key={index} className="timeline-item animate-on-scroll">
+            {timeline.map((item, index) => <div key={index} className="timeline-item animate-on-scroll">
                 <div className="timeline-dot"></div>
                 <div className="ml-4">
                   <div className="mb-4">
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
-                      className="timeline-image w-full h-48 object-contain bg-white rounded-lg shadow-md p-4" 
-                    />
+                    <img src={item.image} alt={item.title} className="timeline-image w-full h-48 object-contain bg-white rounded-lg shadow-md p-4" />
                   </div>
                   <span className="text-gold font-playfair text-xl">{item.year}</span>
                   <h3 className="text-2xl font-playfair text-royal mt-1">{item.title}</h3>
                   <p className="text-royal/70 mt-2">{item.description}</p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -235,14 +211,12 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-center mb-16">Traditional Titles</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {traditionalTitles.map((title, index) => (
-              <div key={index} className="fade-up-section p-6 bg-white rounded-lg shadow-lg border border-gold/20 hover:border-gold transition-all duration-300">
+            {traditionalTitles.map((title, index) => <div key={index} className="fade-up-section p-6 bg-white rounded-lg shadow-lg border border-gold/20 hover:border-gold transition-all duration-300">
                 <div className="text-gold font-playfair text-lg mb-2">{title.year}</div>
                 <h3 className="text-xl font-playfair text-royal mb-2">{title.title}</h3>
                 <div className="text-sm text-royal/70 mb-3">{title.conferredBy}</div>
                 <p className="text-royal/80">{title.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -251,14 +225,12 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-center mb-16">Professional Awards</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {awards.map((award, index) => (
-              <div key={index} className="fade-up-section p-6 bg-white rounded-lg shadow-lg border border-gold/20 hover:border-gold transition-all duration-300">
+            {awards.map((award, index) => <div key={index} className="fade-up-section p-6 bg-white rounded-lg shadow-lg border border-gold/20 hover:border-gold transition-all duration-300">
                 <div className="text-gold font-playfair text-lg mb-2">{award.year}</div>
                 <h3 className="text-xl font-playfair text-royal mb-2">{award.title}</h3>
                 <div className="text-sm text-royal/70 mb-3">{award.organization}</div>
                 <p className="text-royal/80">{award.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -267,39 +239,21 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {galleryImages.map((image, index) => (
-              <div key={index} className="fade-up-section">
-                <button 
-                  onClick={() => setSelectedImage(image)}
-                  className="w-full"
-                >
-                  <img 
-                    alt={`Gallery image ${index + 1}`} 
-                    className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" 
-                    src={image}
-                  />
+            {galleryImages.map((image, index) => <div key={index} className="fade-up-section">
+                <button onClick={() => setSelectedImage(image)} className="w-full">
+                  <img alt={`Gallery image ${index + 1}`} className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" src={image} />
                 </button>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
         {/* Image Modal */}
-        {selectedImage && (
-          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-            <button 
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white hover:text-gold transition-colors"
-            >
+        {selectedImage && <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+            <button onClick={() => setSelectedImage(null)} className="absolute top-4 right-4 text-white hover:text-gold transition-colors">
               <XCircle className="w-8 h-8" />
             </button>
-            <img 
-              src={selectedImage} 
-              alt="Enlarged gallery image" 
-              className="max-w-full max-h-[90vh] object-contain rounded-lg"
-            />
-          </div>
-        )}
+            <img src={selectedImage} alt="Enlarged gallery image" className="max-w-full max-h-[90vh] object-contain rounded-lg" />
+          </div>}
       </section>
 
       <section id="contact" className="py-20 bg-royal text-white">
@@ -370,5 +324,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-
 export default Index;
