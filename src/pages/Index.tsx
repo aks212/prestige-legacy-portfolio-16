@@ -46,12 +46,12 @@ const Index = () => {
     year: "2014-2015",
     title: "Acting Governor",
     description: "Implemented critical reforms and development projects.",
-    image: "/lovable-uploads/213031f2-f466-4f0d-a9f7-c8df13c5f13c.png"
+    image: "/lovable-uploads/21e9549a-f9ea-4456-94c7-4db72bf79702.png"
   }, {
     year: "2007-2012",
     title: "Deputy Governor",
     description: "Championed educational and infrastructure development.",
-    image: "/lovable-uploads/213031f2-f466-4f0d-a9f7-c8df13c5f13c.png"
+    image: "/lovable-uploads/21e9549a-f9ea-4456-94c7-4db72bf79702.png"
   }];
 
   const traditionalTitles = [{
@@ -98,7 +98,7 @@ const Index = () => {
     setIsMenuOpen(false);
   };
 
-  return <div className="min-h-screen">
+  return <div className="min-h-screen flex flex-col">
       <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-[14px] rounded-none">
@@ -263,6 +263,39 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      <footer className="bg-royal/95 text-white py-10 mt-auto">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h3 className="font-playfair text-xl mb-4 text-gold">About</h3>
+              <p className="text-white/80">
+                Dedicated to progressive leadership and sustainable development in Nigeria.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-playfair text-xl mb-4 text-gold">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><button onClick={() => scrollToSection('about')} className="text-white/80 hover:text-gold transition-colors">About</button></li>
+                <li><button onClick={() => scrollToSection('journey')} className="text-white/80 hover:text-gold transition-colors">Journey</button></li>
+                <li><button onClick={() => scrollToSection('titles')} className="text-white/80 hover:text-gold transition-colors">Titles</button></li>
+                <li><button onClick={() => scrollToSection('awards')} className="text-white/80 hover:text-gold transition-colors">Awards</button></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-playfair text-xl mb-4 text-gold">Connect</h3>
+              <address className="not-italic text-white/80">
+                <p>Abuja, Nigeria</p>
+                <p className="mt-2">contact@example.com</p>
+                <p className="mt-2">+234 XXX XXX XXXX</p>
+              </address>
+            </div>
+          </div>
+          <div className="border-t border-white/10 pt-8 text-center text-white/60">
+            <p>&copy; {new Date().getFullYear()} Sen. A.S. Danladi. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>;
 };
 
