@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, Mail, MapPin, Phone, Menu, X } from "lucide-react";
+
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
     const observer = new IntersectionObserver(entries => {
@@ -18,6 +20,7 @@ const Index = () => {
     });
     return () => observer.disconnect();
   }, []);
+
   const achievements = [{
     number: "25+",
     label: "Years of Public Service"
@@ -28,6 +31,7 @@ const Index = () => {
     number: "1M+",
     label: "Lives Impacted"
   }];
+
   const timeline = [{
     year: "2023",
     title: "APC Senatorial Candidate",
@@ -49,6 +53,24 @@ const Index = () => {
     description: "Championed educational and infrastructure development.",
     image: "/placeholder.svg"
   }];
+
+  const awards = [{
+    title: "Distinguished Leadership Award",
+    year: "2022",
+    organization: "Nigerian Senate",
+    description: "Recognized for exceptional parliamentary leadership"
+  }, {
+    title: "Public Service Excellence Award",
+    year: "2020",
+    organization: "Federal Government of Nigeria",
+    description: "For outstanding contribution to national development"
+  }, {
+    title: "Humanitarian Service Award",
+    year: "2018",
+    organization: "NGO Consortium",
+    description: "For impactful community development initiatives"
+  }];
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -58,6 +80,7 @@ const Index = () => {
     }
     setIsMenuOpen(false);
   };
+
   return <div className="min-h-screen">
       <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
@@ -72,6 +95,7 @@ const Index = () => {
               <ul className="flex flex-col md:flex-row items-center gap-6 p-4 md:p-0">
                 <li><button onClick={() => scrollToSection('about')} className="nav-link text-white">About</button></li>
                 <li><button onClick={() => scrollToSection('journey')} className="nav-link text-white">Journey</button></li>
+                <li><button onClick={() => scrollToSection('awards')} className="nav-link text-white">Awards</button></li>
                 <li><button onClick={() => scrollToSection('gallery')} className="nav-link text-white">Gallery</button></li>
                 <li><button onClick={() => scrollToSection('contact')} className="nav-link text-white">Contact</button></li>
               </ul>
@@ -153,7 +177,23 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="gallery" className="py-20 bg-gray-50">
+      <section id="awards" className="py-20 bg-gray-50">
+        <div className="container">
+          <h2 className="section-title text-center mb-16">Titles & Awards</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {awards.map((award, index) => (
+              <div key={index} className="fade-up-section p-6 bg-white rounded-lg shadow-lg border border-gold/20 hover:border-gold transition-all duration-300">
+                <div className="text-gold font-playfair text-lg mb-2">{award.year}</div>
+                <h3 className="text-xl font-playfair text-royal mb-2">{award.title}</h3>
+                <div className="text-sm text-royal/70 mb-3">{award.organization}</div>
+                <p className="text-royal/80">{award.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" className="py-20 bg-white">
         <div className="container">
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -204,4 +244,5 @@ const Index = () => {
       </section>
     </div>;
 };
+
 export default Index;
