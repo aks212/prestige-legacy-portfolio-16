@@ -54,6 +54,23 @@ const Index = () => {
     image: "/placeholder.svg"
   }];
 
+  const traditionalTitles = [{
+    title: "Sardaunan Muri",
+    year: "2015",
+    conferredBy: "Emir of Muri",
+    description: "Traditional title recognizing leadership and contributions to community development"
+  }, {
+    title: "Garkuwan Matasan",
+    year: "2013",
+    conferredBy: "Youth Coalition",
+    description: "Youth leadership recognition title"
+  }, {
+    title: "Wakilin Raya",
+    year: "2010",
+    conferredBy: "Traditional Council",
+    description: "Traditional title for community service excellence"
+  }];
+
   const awards = [{
     title: "Distinguished Leadership Award",
     year: "2022",
@@ -95,6 +112,7 @@ const Index = () => {
               <ul className="flex flex-col md:flex-row items-center gap-6 p-4 md:p-0">
                 <li><button onClick={() => scrollToSection('about')} className="nav-link text-white">About</button></li>
                 <li><button onClick={() => scrollToSection('journey')} className="nav-link text-white">Journey</button></li>
+                <li><button onClick={() => scrollToSection('titles')} className="nav-link text-white">Titles</button></li>
                 <li><button onClick={() => scrollToSection('awards')} className="nav-link text-white">Awards</button></li>
                 <li><button onClick={() => scrollToSection('gallery')} className="nav-link text-white">Gallery</button></li>
                 <li><button onClick={() => scrollToSection('contact')} className="nav-link text-white">Contact</button></li>
@@ -177,9 +195,25 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="awards" className="py-20 bg-gray-50">
+      <section id="titles" className="py-20 bg-gray-50">
         <div className="container">
-          <h2 className="section-title text-center mb-16">Titles & Awards</h2>
+          <h2 className="section-title text-center mb-16">Traditional Titles</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {traditionalTitles.map((title, index) => (
+              <div key={index} className="fade-up-section p-6 bg-white rounded-lg shadow-lg border border-gold/20 hover:border-gold transition-all duration-300">
+                <div className="text-gold font-playfair text-lg mb-2">{title.year}</div>
+                <h3 className="text-xl font-playfair text-royal mb-2">{title.title}</h3>
+                <div className="text-sm text-royal/70 mb-3">{title.conferredBy}</div>
+                <p className="text-royal/80">{title.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="awards" className="py-20 bg-white">
+        <div className="container">
+          <h2 className="section-title text-center mb-16">Professional Awards</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {awards.map((award, index) => (
               <div key={index} className="fade-up-section p-6 bg-white rounded-lg shadow-lg border border-gold/20 hover:border-gold transition-all duration-300">
@@ -193,7 +227,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="gallery" className="py-20 bg-white">
+      <section id="gallery" className="py-20 bg-gray-50">
         <div className="container">
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -206,39 +240,20 @@ const Index = () => {
 
       <section id="contact" className="py-20 bg-royal text-white">
         <div className="container">
-          <h2 className="section-title text-white text-center">Get in Touch</h2>
-          
-          <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-            <div className="space-y-8">
-              <div className="flex items-center gap-4 fade-up-section">
-                <Phone className="contact-icon text-gold w-6 h-6" />
-                <span>+234 XXX XXX XXXX</span>
-              </div>
-              <div className="flex items-center gap-4 fade-up-section">
-                <Mail className="contact-icon text-gold w-6 h-6" />
-                <span>contact@example.com</span>
-              </div>
-              <div className="flex items-center gap-4 fade-up-section">
-                <MapPin className="contact-icon text-gold w-6 h-6" />
-                <span>Abuja, Nigeria</span>
-              </div>
+          <h2 className="section-title text-white text-center mb-12">Get in Touch</h2>
+          <div className="max-w-xl mx-auto space-y-8">
+            <div className="flex items-center gap-4 fade-up-section justify-center">
+              <Phone className="contact-icon text-gold w-6 h-6" />
+              <span>+234 XXX XXX XXXX</span>
             </div>
-
-            <form className="space-y-6 fade-up-section">
-              <div>
-                <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
-              </div>
-              <div>
-                <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
-              </div>
-              <div>
-                <input type="text" placeholder="Subject" className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold" />
-              </div>
-              <div>
-                <textarea placeholder="Your Message" rows={4} className="w-full px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:border-gold resize-none"></textarea>
-              </div>
-              <button type="submit" className="gold-button w-full">Send Message</button>
-            </form>
+            <div className="flex items-center gap-4 fade-up-section justify-center">
+              <Mail className="contact-icon text-gold w-6 h-6" />
+              <span>contact@example.com</span>
+            </div>
+            <div className="flex items-center gap-4 fade-up-section justify-center">
+              <MapPin className="contact-icon text-gold w-6 h-6" />
+              <span>Abuja, Nigeria</span>
+            </div>
           </div>
         </div>
       </section>
