@@ -36,22 +36,22 @@ const Index = () => {
     year: "2023",
     title: "APC Senatorial Candidate",
     description: "Led a transformative campaign focused on progressive policies.",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/f7068961-3fef-496f-ac24-c6ec3de35873.png"
   }, {
     year: "2015-2017",
     title: "Senator",
     description: "Served as Chairman, Senate Committee on NEPAD.",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/f7068961-3fef-496f-ac24-c6ec3de35873.png"
   }, {
     year: "2014-2015",
     title: "Acting Governor",
     description: "Implemented critical reforms and development projects.",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/213031f2-f466-4f0d-a9f7-c8df13c5f13c.png"
   }, {
     year: "2007-2012",
     title: "Deputy Governor",
     description: "Championed educational and infrastructure development.",
-    image: "/placeholder.svg"
+    image: "/lovable-uploads/213031f2-f466-4f0d-a9f7-c8df13c5f13c.png"
   }];
 
   const traditionalTitles = [{
@@ -180,17 +180,23 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-center mb-16">Leadership Journey</h2>
           <div className="max-w-3xl mx-auto">
-            {timeline.map((item, index) => <div key={index} className="timeline-item animate-on-scroll">
+            {timeline.map((item, index) => (
+              <div key={index} className="timeline-item animate-on-scroll">
                 <div className="timeline-dot"></div>
                 <div className="ml-4">
                   <div className="mb-4">
-                    <img src={item.image} alt={item.title} className="timeline-image w-full h-48 object-cover rounded-lg shadow-md" />
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="timeline-image w-full h-48 object-contain bg-white rounded-lg shadow-md p-4" 
+                    />
                   </div>
                   <span className="text-gold font-playfair text-xl">{item.year}</span>
                   <h3 className="text-2xl font-playfair text-royal mt-1">{item.title}</h3>
                   <p className="text-royal/70 mt-2">{item.description}</p>
                 </div>
-              </div>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
