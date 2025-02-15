@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { ChevronDown, Mail, MapPin, Phone, Menu, X } from "lucide-react";
+import { ChevronDown, Mail, MapPin, Phone, Menu, X, Facebook, Twitter, Instagram, Youtube, XCircle } from "lucide-react";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
@@ -46,12 +47,12 @@ const Index = () => {
     year: "2014-2015",
     title: "Acting Governor",
     description: "Implemented critical reforms and development projects.",
-    image: "/lovable-uploads/21e9549a-f9ea-4456-94c7-4db72bf79702.png"
+    image: "/lovable-uploads/19002cb2-765a-459b-8eb1-e626cb4b078e.png"
   }, {
     year: "2007-2012",
     title: "Deputy Governor",
     description: "Championed educational and infrastructure development.",
-    image: "/lovable-uploads/21e9549a-f9ea-4456-94c7-4db72bf79702.png"
+    image: "/lovable-uploads/19002cb2-765a-459b-8eb1-e626cb4b078e.png"
   }];
 
   const traditionalTitles = [{
@@ -69,6 +70,16 @@ const Index = () => {
     year: "2010",
     conferredBy: "Traditional Council",
     description: "Traditional title for community service excellence"
+  }, {
+    title: "Dan Masanin Taraba",
+    year: "2008",
+    conferredBy: "Taraba Traditional Council",
+    description: "Title for intellectual and educational contributions"
+  }, {
+    title: "Magatakardan Muri",
+    year: "2006",
+    conferredBy: "Muri Emirate",
+    description: "Recognition of leadership excellence and community service"
   }];
 
   const awards = [{
@@ -86,7 +97,26 @@ const Index = () => {
     year: "2018",
     organization: "NGO Consortium",
     description: "For impactful community development initiatives"
+  }, {
+    title: "Educational Development Award",
+    year: "2016",
+    organization: "National Education Board",
+    description: "For contributions to educational advancement"
+  }, {
+    title: "Youth Empowerment Recognition",
+    year: "2014",
+    organization: "Youth Development Council",
+    description: "For initiatives supporting youth entrepreneurship"
   }];
+
+  const galleryImages = [
+    "/lovable-uploads/11de62b8-f656-4e12-90bb-15daec7f35cb.jpg",
+    "/lovable-uploads/77131393-345c-4704-89ec-23c2fa6bddc9.jpg",
+    "/lovable-uploads/82e9dde3-af19-433c-9189-37632b0894eb.jpg",
+    "/lovable-uploads/a431f8e9-4972-4955-8b6e-f9601b8c0806.jpg",
+    "/lovable-uploads/e3aae050-31d0-41f6-9827-0ec97b9118bc.jpg",
+    "/lovable-uploads/efaed3e1-9a95-4eb0-80c7-480c9a08841e.jpg"
+  ];
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -237,11 +267,39 @@ const Index = () => {
         <div className="container">
           <h2 className="section-title text-center mb-12">Photo Gallery</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((_, index) => <div key={index} className="fade-up-section">
-                <img alt={`Gallery image ${index + 1}`} className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" src="/lovable-uploads/11de62b8-f656-4e12-90bb-15daec7f35cb.jpg" />
-              </div>)}
+            {galleryImages.map((image, index) => (
+              <div key={index} className="fade-up-section">
+                <button 
+                  onClick={() => setSelectedImage(image)}
+                  className="w-full"
+                >
+                  <img 
+                    alt={`Gallery image ${index + 1}`} 
+                    className="gallery-image w-full h-64 object-cover rounded-lg shadow-md" 
+                    src={image}
+                  />
+                </button>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Image Modal */}
+        {selectedImage && (
+          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white hover:text-gold transition-colors"
+            >
+              <XCircle className="w-8 h-8" />
+            </button>
+            <img 
+              src={selectedImage} 
+              alt="Enlarged gallery image" 
+              className="max-w-full max-h-[90vh] object-contain rounded-lg"
+            />
+          </div>
+        )}
       </section>
 
       <section id="contact" className="py-20 bg-royal text-white">
@@ -272,6 +330,20 @@ const Index = () => {
               <p className="text-white/80">
                 Dedicated to progressive leadership and sustainable development in Nigeria.
               </p>
+              <div className="flex gap-4 mt-6">
+                <a href="#" className="text-white/80 hover:text-gold transition-colors">
+                  <Facebook className="w-6 h-6" />
+                </a>
+                <a href="#" className="text-white/80 hover:text-gold transition-colors">
+                  <Twitter className="w-6 h-6" />
+                </a>
+                <a href="#" className="text-white/80 hover:text-gold transition-colors">
+                  <Instagram className="w-6 h-6" />
+                </a>
+                <a href="#" className="text-white/80 hover:text-gold transition-colors">
+                  <Youtube className="w-6 h-6" />
+                </a>
+              </div>
             </div>
             <div>
               <h3 className="font-playfair text-xl mb-4 text-gold">Quick Links</h3>
