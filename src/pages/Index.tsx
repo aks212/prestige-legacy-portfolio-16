@@ -130,7 +130,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
+      <header className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-[14px] rounded-none">
             <div className="text-white font-playfair text-xl">Sen. A.S. Danladi</div>
@@ -139,7 +139,7 @@ const Index = () => {
               {isMenuOpen ? <X /> : <Menu />}
             </button>
 
-            <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block absolute md:relative top-full left-0 w-full md:w-auto bg-royal md:bg-transparent`}>
+            <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block absolute md:relative top-full left-0 w-full md:w-auto bg-royal/80 md:bg-transparent`}>
               <ul className="flex flex-col md:flex-row items-center gap-6 p-4 md:p-0">
                 <li><button onClick={() => scrollToSection('about')} className="nav-link text-white">About</button></li>
                 <li><button onClick={() => scrollToSection('journey')} className="nav-link text-white">Journey</button></li>
@@ -309,13 +309,17 @@ const Index = () => {
               <h3 className="font-playfair text-xl mb-4 text-gold">Connect</h3>
               <address className="not-italic text-white/80">
                 <p>Abuja, Nigeria</p>
-                <p className="mt-2">contact@example.com</p>
+                <p className="mt-2">
+                  <a href="mailto:sen.danlami@talbarmuri.com" className="hover:text-gold transition-colors">
+                    sen.danlami@talbarmuri.com
+                  </a>
+                </p>
                 <p className="mt-2">+234 XXX XXX XXXX</p>
               </address>
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 text-center text-white/60">
-            <p>&copy; {new Date().getFullYear()} Defend Hub Enterprises. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} <a href="https://www.defendhub.ng" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors">Defendhub Enterprises</a>. All rights reserved.</p>
           </div>
         </div>
       </footer>
