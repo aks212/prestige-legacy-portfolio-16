@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { ChevronDown, Mail, MapPin, Phone, Menu, X, Facebook, Twitter, Instagram, Youtube, XCircle } from "lucide-react";
+
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   useEffect(() => {
     setIsVisible(true);
     const observer = new IntersectionObserver(entries => {
@@ -19,6 +21,7 @@ const Index = () => {
     });
     return () => observer.disconnect();
   }, []);
+
   const achievements = [{
     number: "25+",
     label: "Years of Public Service"
@@ -29,6 +32,7 @@ const Index = () => {
     number: "1M+",
     label: "Lives Impacted"
   }];
+
   const timeline = [{
     year: "2023",
     title: "APC Senatorial Candidate",
@@ -50,6 +54,7 @@ const Index = () => {
     description: "Championed educational and infrastructure development.",
     image: "/lovable-uploads/19002cb2-765a-459b-8eb1-e626cb4b078e.png"
   }];
+
   const traditionalTitles = [{
     title: "Sardaunan Muri",
     year: "2015",
@@ -76,6 +81,7 @@ const Index = () => {
     conferredBy: "Muri Emirate",
     description: "Recognition of leadership excellence and community service"
   }];
+
   const awards = [{
     title: "Distinguished Leadership Award",
     year: "2022",
@@ -102,7 +108,16 @@ const Index = () => {
     organization: "Youth Development Council",
     description: "For initiatives supporting youth entrepreneurship"
   }];
-  const galleryImages = ["/lovable-uploads/11de62b8-f656-4e12-90bb-15daec7f35cb.jpg", "/lovable-uploads/77131393-345c-4704-89ec-23c2fa6bddc9.jpg", "/lovable-uploads/82e9dde3-af19-433c-9189-37632b0894eb.jpg", "/lovable-uploads/a431f8e9-4972-4955-8b6e-f9601b8c0806.jpg", "/lovable-uploads/e3aae050-31d0-41f6-9827-0ec97b9118bc.jpg", "/lovable-uploads/efaed3e1-9a95-4eb0-80c7-480c9a08841e.jpg"];
+
+  const galleryImages = [
+    "/lovable-uploads/82a92b02-d60f-464b-91bc-633d8c059d2c.png",
+    "/lovable-uploads/490c5576-88a1-43e0-b406-29a433845e2e.png",
+    "/lovable-uploads/756b9c2f-56cf-446e-810d-4290a3194f7a.png",
+    "/lovable-uploads/e42bdc00-392a-4e27-b11e-2625c8e0f0a7.png",
+    "/lovable-uploads/11de62b8-f656-4e12-90bb-15daec7f35cb.jpg",
+    "/lovable-uploads/efaed3e1-9a95-4eb0-80c7-480c9a08841e.jpg"
+  ];
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -112,7 +127,9 @@ const Index = () => {
     }
     setIsMenuOpen(false);
   };
-  return <div className="min-h-screen flex flex-col">
+
+  return (
+    <div className="min-h-screen flex flex-col">
       <header className="fixed w-full z-50 bg-royal/90 backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-[14px] rounded-none">
@@ -256,8 +273,6 @@ const Index = () => {
           </div>}
       </section>
 
-      
-
       <footer className="bg-royal/95 text-white py-10 mt-auto">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -304,6 +319,8 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
