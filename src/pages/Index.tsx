@@ -315,7 +315,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-white/10 pt-8 text-center text-white/60">
-            <p>&copy; {new Date().getFullYear()} Sen. A.S. Danladi. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Defend Hub Enterprises. All rights reserved.</p>
           </div>
         </div>
       </footer>
