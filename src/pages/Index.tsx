@@ -147,9 +147,7 @@ const Index = () => {
           </div>
           <span className="text-gold font-inter uppercase tracking-wider mb-4 block">Welcome to the Official Portfolio of</span>
           <h1 className="font-playfair text-5xl md:text-7xl text-white mb-6">Sen. Abubakar Sani Danladi</h1>
-          <p className="text-white/90 text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            "Leadership Rooted in Service, Commitment, and Progress."
-          </p>
+          <p className="text-white/90 text-xl md:text-2xl mb-8 max-w-2xl mx-auto">"Grass-root Politics & community Development."</p>
           <div className="flex flex-wrap justify-center gap-4">
             <button onClick={() => scrollToSection('about')} className="gold-button">Explore My Journey</button>
           </div>
