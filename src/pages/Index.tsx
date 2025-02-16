@@ -172,7 +172,7 @@ const Index = () => {
         <div className="container">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="fade-up-section">
-              <img alt="Senator at work" className="timeline-image rounded-lg shadow-xl w-full h-[500px] object-cover" src="/lovable-uploads/e3aae050-31d0-41f6-9827-0ec97b9118bc.jpg" />
+              <img alt="Senator at work" src="/lovable-uploads/e3aae050-31d0-41f6-9827-0ec97b9118bc.jpg" className="timeline-image rounded-lg shadow-xl w-full h-[500px] object-fill" />
             </div>
             <div className="fade-up-section">
               <h2 className="section-title">The Man Behind the Mission</h2>
