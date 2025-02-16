@@ -146,7 +146,7 @@ const Index = () => {
                 <li><button onClick={() => scrollToSection('titles')} className="nav-link text-white">Titles</button></li>
                 <li><button onClick={() => scrollToSection('awards')} className="nav-link text-white">Awards</button></li>
                 <li><button onClick={() => scrollToSection('gallery')} className="nav-link text-white">Gallery</button></li>
-                <li><button onClick={() => scrollToSection('contact')} className="nav-link text-white">Contact</button></li>
+                <li><button onClick={() => scrollToSection('footer')} className="nav-link text-white">Contact</button></li>
               </ul>
             </nav>
           </div>
@@ -155,8 +155,8 @@ const Index = () => {
 
       <section className="parallax min-h-screen flex items-center justify-center text-center relative">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{
-        backgroundImage: `url('/placeholder.svg')`
-      }}></div>
+          backgroundImage: `url('/lovable-uploads/186e9d09-ae43-430d-9555-cf62753c7caf.png')`
+        }}></div>
         <div className="absolute inset-0 bg-royal/90"></div>
         <div className={`relative z-10 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           <div className="mb-8">
@@ -273,7 +273,7 @@ const Index = () => {
           </div>}
       </section>
 
-      <footer className="bg-royal/95 text-white py-10 mt-auto">
+      <footer id="footer" className="bg-royal/95 text-white py-10 mt-auto">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             <div>
