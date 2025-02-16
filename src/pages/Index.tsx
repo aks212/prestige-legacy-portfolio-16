@@ -133,20 +133,20 @@ const Index = () => {
       <header className="fixed w-full z-50 bg-transparent backdrop-blur-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-[14px] rounded-none">
-            <div className="text-white font-playfair text-xl">Sen. A.S. Danladi</div>
+            <div className="text-royal font-playfair text-xl font-bold">Sen. A.S. Danladi</div>
             
-            <button className="md:hidden text-white p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button className="md:hidden text-royal p-2" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X /> : <Menu />}
             </button>
 
             <nav className={`${isMenuOpen ? 'block' : 'hidden'} md:block absolute md:relative top-full left-0 w-full md:w-auto bg-royal/80 md:bg-transparent`}>
               <ul className="flex flex-col md:flex-row items-center gap-6 p-4 md:p-0">
-                <li><button onClick={() => scrollToSection('about')} className="nav-link text-white">About</button></li>
-                <li><button onClick={() => scrollToSection('journey')} className="nav-link text-white">Journey</button></li>
-                <li><button onClick={() => scrollToSection('titles')} className="nav-link text-white">Titles</button></li>
-                <li><button onClick={() => scrollToSection('awards')} className="nav-link text-white">Awards</button></li>
-                <li><button onClick={() => scrollToSection('gallery')} className="nav-link text-white">Gallery</button></li>
-                <li><button onClick={() => scrollToSection('footer')} className="nav-link text-white">Contact</button></li>
+                <li><button onClick={() => scrollToSection('about')} className="nav-link text-white md:text-royal md:hover:text-royal-light">About</button></li>
+                <li><button onClick={() => scrollToSection('journey')} className="nav-link text-white md:text-royal md:hover:text-royal-light">Journey</button></li>
+                <li><button onClick={() => scrollToSection('titles')} className="nav-link text-white md:text-royal md:hover:text-royal-light">Titles</button></li>
+                <li><button onClick={() => scrollToSection('awards')} className="nav-link text-white md:text-royal md:hover:text-royal-light">Awards</button></li>
+                <li><button onClick={() => scrollToSection('gallery')} className="nav-link text-white md:text-royal md:hover:text-royal-light">Gallery</button></li>
+                <li><button onClick={() => scrollToSection('footer')} className="nav-link text-white md:text-royal md:hover:text-royal-light">Contact</button></li>
               </ul>
             </nav>
           </div>
@@ -314,7 +314,6 @@ const Index = () => {
                     sen.danlami@talbarmuri.com
                   </a>
                 </p>
-                <p className="mt-2">+234 XXX XXX XXXX</p>
               </address>
             </div>
           </div>
