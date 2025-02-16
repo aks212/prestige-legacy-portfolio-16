@@ -258,25 +258,7 @@ const Index = () => {
           </div>}
       </section>
 
-      <section id="contact" className="py-20 bg-royal text-white">
-        <div className="container">
-          <h2 className="section-title text-white text-center mb-12">Get in Touch</h2>
-          <div className="max-w-xl mx-auto space-y-8">
-            <div className="flex items-center gap-4 fade-up-section justify-center">
-              <Phone className="contact-icon text-gold w-6 h-6" />
-              <span>+234 XXX XXX XXXX</span>
-            </div>
-            <div className="flex items-center gap-4 fade-up-section justify-center">
-              <Mail className="contact-icon text-gold w-6 h-6" />
-              <span>contact@example.com</span>
-            </div>
-            <div className="flex items-center gap-4 fade-up-section justify-center">
-              <MapPin className="contact-icon text-gold w-6 h-6" />
-              <span>Abuja, Nigeria</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      
 
       <footer className="bg-royal/95 text-white py-10 mt-auto">
         <div className="container mx-auto px-4">
